@@ -8,6 +8,8 @@ Initial images < 50Mb
 
 docker run --name "my-wiki" -d -p 80:80 alastairhm/alpine-doku
 
+Browse to [http://localhost/install.php]
+
 ## Data Persistence
 
 ### Backup
