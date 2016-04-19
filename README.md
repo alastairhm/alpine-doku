@@ -12,6 +12,8 @@ Browse to install page http://localhost/install.php
 
 ## Data Persistence
 
+An issue with file permissions when using the volume mounts so;
+
 ### Backup
 
 You can copy your Wiki out of your container with
