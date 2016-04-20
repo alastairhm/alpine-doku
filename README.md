@@ -12,7 +12,13 @@ Browse to install page http://localhost/install.php
 
 ## Data Persistence
 
-An issue with file permissions when using the volume mounts so;
+You can use volume mounts to persist your data outside the container for example
+
+docker run --name "my-wiki" -d -p 80:80 -v $(pwd)/data:/var/doku/data -v $(pwd)/conf:/var/doku/conf alastairhm/alpine-doku
+
+this will create the data/ conf directories in your local directory.
+
+There is An issue with file permissions when using the volume mounts on a Mac so;
 
 ### Backup
 
