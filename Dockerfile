@@ -3,7 +3,8 @@ MAINTAINER Alastair Montgomery <alastair@montgomery.me.uk>
 
 ADD lighttpd.conf /etc/lighttpd/lighttpd.conf
 
-RUN wget http://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz -O dokuwiki.tgz && \
+RUN apk --update add php-session && \
+    wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz -O dokuwiki.tgz && \
     tar zxf dokuwiki.tgz && \
     mkdir -p /var/doku && \
     mv dokuwiki-*/* /var/doku && \
