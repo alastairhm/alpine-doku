@@ -10,6 +10,12 @@ Initial images < 50Mb
 docker run --name "my-wiki" -d -p 80:80 alastairhm/alpine-doku
 ```
 
+or
+
+```bash
+docker run --name "my-wiki" -d -p 80:80 ghcr.io/alastairhm/alpine-doku:latest
+```
+
 Browse to install page http://localhost/install.php
 
 ## Data Persistence
@@ -18,6 +24,12 @@ You can use volume mounts to persist your data outside the container for example
 
 ```bash
 docker run --name "my-wiki" -d -p 80:80 -v $(pwd)/data:/var/doku/data -v $(pwd)/conf:/var/doku/conf alastairhm/alpine-doku
+```
+
+or
+
+```bash
+docker run --name "my-wiki" -d -p 80:80 -v $(pwd)/data:/var/doku/data -v $(pwd)/conf:/var/doku/conf ghcr.io/alastairhm/alpine-doku:latest 
 ```
 
 this will create the data/ conf directories in your local directory.
