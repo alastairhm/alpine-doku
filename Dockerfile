@@ -1,4 +1,4 @@
-FROM alastairhm/alpine-lighttpd-php:latest
+FROM ghcr.io/alastairhm/alpine-lighttpd-php:latest
 MAINTAINER Alastair Montgomery <alastair@montgomery.me.uk>
 
 ADD lighttpd.conf /etc/lighttpd/lighttpd.conf
@@ -8,9 +8,8 @@ RUN wget http://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz -O dokuwi
     mkdir -p /var/doku && \
     mv dokuwiki-*/* /var/doku && \
     rm -rf dokuwiki* && \
-    chown -R www-data. /var/doku
-
-RUN mkdir -p /storage && \
+    chown -R www-data. /var/doku && \
+    mkdir -p /storage && \
     cp -R /var/doku/data /storage && \
     cp -R /var/doku/conf /storage
 
@@ -20,5 +19,3 @@ VOLUME ["/var/doku/data","/var/doku/conf"]
 
 ADD start.sh /start.sh
 ENTRYPOINT /start.sh
-
-
