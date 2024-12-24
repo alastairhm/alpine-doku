@@ -1,5 +1,5 @@
 FROM ghcr.io/alastairhm/alpine-lighttpd-php:latest
-MAINTAINER Alastair Montgomery <alastair@montgomery.me.uk>
+LABEL org.opencontainers.image.authors="alastair@montgomery.me.uk"
 
 ADD lighttpd.conf /etc/lighttpd/lighttpd.conf
 
@@ -9,7 +9,7 @@ RUN apk --update add php-session && \
     mkdir -p /var/doku && \
     mv dokuwiki-*/* /var/doku && \
     rm -rf dokuwiki* && \
-    chown -R www-data. /var/doku && \
+    chown -R www-data: /var/doku && \
     mkdir -p /storage && \
     cp -R /var/doku/data /storage && \
     cp -R /var/doku/conf /storage
